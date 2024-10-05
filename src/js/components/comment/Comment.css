@@ -1,0 +1,40 @@
+.comment {
+  padding: 8px;
+  border: 1px solid #e4e4e4;
+  border-radius: 10px;
+}
+
+.comment:last-child {
+  border-bottom: none;
+}
+
+.comment__header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 5px;
+}
+
+.comment__avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+.comment__avatar-img {
+  width: 100%;
+  border-radius: 50%;
+}
+
+.comment__author {
+  font-size: 15px;
+}
+
+.comment__date {
+ margin-left: auto;
+  font-size: 12px;
+}
+
+.comment__content {
+  padding: 0 45px;
+}
