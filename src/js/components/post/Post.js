@@ -38,35 +38,40 @@ export default class Post {
 
   renderPost() {
     this.stream$.subscribe((response) => {
-      const postContainer = document.querySelector('.posts');
+      const postContainer = document.querySelector(".posts");
       const post = response.post;
       const comments = response.comments;
-      const {id, avatar, author, title, image, created} = post;
+      const { id, avatar, author, title, image, created } = post;
       const date = converterTimestamp(created);
 
-      postContainer.insertAdjacentHTML("afterBegin", Post.create(id, avatar, author, date, title, image));
+      postContainer.insertAdjacentHTML(
+        "afterBegin",
+        Post.create(id, avatar, author, date, title, image)
+      );
 
-      const posts = document.querySelectorAll('.post');
+      const posts = document.querySelectorAll(".post");
 
-      posts.forEach(post => {
-        comments.forEach(comment => {
+      posts.forEach((post) => {
+        comments.forEach((comment) => {
           if (post.id === comment.post_id) {
             const postEl = document.getElementById(post.id);
-            const commentContainer = postEl.querySelector('.comments__container')
-            const {id, avatar, author, content, created} = comment;
+            const commentContainer = postEl.querySelector(
+              ".comments__container"
+            );
+            const { id, avatar, author, content, created } = comment;
             const date = converterTimestamp(created);
 
-            commentContainer.insertAdjacentHTML("afterBegin", this.comment.create(id, avatar, author, date, content))
+            commentContainer.insertAdjacentHTML(
+              "afterBegin",
+              this.comment.create(id, avatar, author, date, content)
+            );
           }
         });
       });
-    })
+    });
   }
 
   init() {
     this.renderPost();
   }
 }
-
-
-

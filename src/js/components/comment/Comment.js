@@ -1,7 +1,6 @@
 import "./Comment.css";
 
 export default class Comment {
-  
   create(id, avatar, author, date, content) {
     return `
       <div id="${id}" class="comment">
